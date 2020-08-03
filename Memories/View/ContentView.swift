@@ -10,10 +10,10 @@ import SwiftUI
 
 
 struct ContentView: View {
-    var emojiControl: EmojiMemoryGame
+    var emojiControl: EmojiMemoryGame // pointer to viewmodel
 
     var body: some View {
-        HStack {//creates a horizontal stack
+        HStack {
             ForEach(emojiControl.cards) { card in
                 CardView(card: card)
                     .onTapGesture {
@@ -23,7 +23,7 @@ struct ContentView: View {
             //assignment 1 challenge 2 = give 2:3 aspect ratio
             .aspectRatio(0.75, contentMode: .fit)
         }
-            .foregroundColor(.orange)//color of card
+            .foregroundColor(.orange)//color of whole Hstack
             .padding()//paddding so it wont go to the edges
             //assignment 1 challenge 5 = in 5 cards option choose different font
             .font(emojiControl.cards.count > 4 ? .body : .largeTitle)
@@ -32,7 +32,7 @@ struct ContentView: View {
 
 // MARK: - card view
 struct CardView: View {
-    var card: MemoryGame<String>.Card
+    var card: MemoryGame<String>.Card // create a card type from model
 
     var body: some View {
         ZStack {

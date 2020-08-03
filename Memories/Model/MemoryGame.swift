@@ -17,7 +17,7 @@ struct MemoryGame<CardContent> {
 
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = [Card]()
-
+        // create pairs by calling given function that creates card
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(id: pairIndex * 2, content: content))

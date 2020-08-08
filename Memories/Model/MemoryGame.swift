@@ -23,6 +23,14 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
     }
 
+    var isSeenIndex = [Int]()
+
+    var gameOver: Bool {
+        cards.indices.filter{ cards[$0].isMatched }.count == cards.count
+    }
+
+    var score = 0
+
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = [Card]()
         for pairIndex in 0..<numberOfPairsOfCards {
@@ -45,15 +53,26 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
 extension MemoryGame {
 
     mutating func choose(card: Card) {
-
+        //get chosen cards index ignore if already faceup and matched
         if let chosenIndex = cards.index(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
+            //if theres a one card already face up
             if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                //if both faceup cards match
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
+                    score += 2
+                } else {
+                    //mismatch
+                    if isSeenIndex.contains(chosenIndex) || isSeenIndex.contains(potentialMatchIndex) {
+                        score -= 1
+                    }
+                    isSeenIndex.append(chosenIndex)
+                    isSeenIndex.append(potentialMatchIndex)
                 }
                 cards[chosenIndex].isFaceUp = true
             } else {
+                //make this card faceup
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
         }

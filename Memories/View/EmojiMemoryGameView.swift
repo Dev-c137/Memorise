@@ -13,15 +13,23 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var emojiControl: EmojiMemoryGame
 
     var body: some View {
-        Grid (emojiControl.cards) { card in
-                CardView(card: card)
+
+        VStack {
+            Text("\(emojiControl.theme.name) with Score: \(emojiControl.score)")
+            Grid(emojiControl.cards) { card in
+                CardView(card: card, gradient: self.emojiControl.theme.gradient)
                     .onTapGesture {
                         self.emojiControl.choose(card: card)
                 }
                 .padding(5)
-        }
-            .foregroundColor(.orange)
+            }
             .padding()
+            Button("New Game") {
+                self.emojiControl.newGame()
+            }
+        }
+        .background(Color.black)
+        .foregroundColor(emojiControl.theme.color)
 
     }
 }
@@ -29,6 +37,8 @@ struct EmojiMemoryGameView: View {
 // MARK: - card view
 struct CardView: View {
     var card: MemoryGame<String>.Card
+
+    var gradient: Gradient
 
     var body: some View {
         GeometryReader { geometry in
@@ -46,7 +56,7 @@ struct CardView: View {
             } else {
                 if !card.isMatched {
                     RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill()
+                        .fill(LinearGradient(gradient: gradient, startPoint: .topLeading, endPoint: .bottomTrailing))
                 }
             }
         }

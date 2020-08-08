@@ -19,6 +19,7 @@
 		BBF3792924DE73880089FACA /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3792824DE73880089FACA /* GridLayout.swift */; };
 		BBF3792B24DE74050089FACA /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3792A24DE74050089FACA /* Grid.swift */; };
 		BBF3792D24DE7EBB0089FACA /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3792C24DE7EBB0089FACA /* Array+Only.swift */; };
+		BBF3792F24DE7FB80089FACA /* EmojiTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3792E24DE7FB80089FACA /* EmojiTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		BBF3792824DE73880089FACA /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		BBF3792A24DE74050089FACA /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		BBF3792C24DE7EBB0089FACA /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
+		BBF3792E24DE7FB80089FACA /* EmojiTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				BBED0C9024D560E500804AC1 /* EmojiMemoryGame.swift */,
+				BBF3792E24DE7FB80089FACA /* EmojiTheme.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				BBF3792B24DE74050089FACA /* Grid.swift in Sources */,
 				BBED0C7C24D5604800804AC1 /* EmojiMemoryGameView.swift in Sources */,
 				BBED0C9124D560E500804AC1 /* EmojiMemoryGame.swift in Sources */,
+				BBF3792F24DE7FB80089FACA /* EmojiTheme.swift in Sources */,
 				BBF3792924DE73880089FACA /* GridLayout.swift in Sources */,
 				BBF3792724DE6D860089FACA /* Array+Identifiable.swift in Sources */,
 			);

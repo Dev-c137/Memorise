@@ -38,5 +38,5 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     }
 
     // MARK: - drawing constants
-    let aspectRatio = 1.0
+    let aspectRatio = 0.80
 }
